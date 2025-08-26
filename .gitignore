@@ -1,0 +1,47 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executable files (ignore all .exe files)
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+
+# Debug files
+*.pdb
+*.idb
+*.ilk
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Build directories
+/build/
+/Debug/
+/Release/
+
+# Windows-specific junk files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
