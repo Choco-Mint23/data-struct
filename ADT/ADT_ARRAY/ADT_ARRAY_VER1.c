@@ -28,7 +28,9 @@ int main() {
     
      if (locate(L,4)!=-1) {
          printf("\n%d is found in index %d",L.elem[locate(L,4)],locate(L,4));
-     }
+     } else {
+     	return -1;
+	 }
     return 0;
 }
 
