@@ -214,10 +214,10 @@ int locate(List *list, int data) {
 
 void display(List *list) {
 	
-	Node *trav = list->head;
+	Node *current = list->head;
 	int i;
 	for(i=0;i<list->count;i++) {
-	printf("Node[%d]: %d\n",i,trav->data);
-		trav = trav->next;
+	printf("Node[%d]: %d\n",i,current->data);
+		current = current->next;
     }
 }
