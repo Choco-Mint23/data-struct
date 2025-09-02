@@ -76,7 +76,7 @@ void empty(List *list) {
 		current = current->next;
 		free(temp);
 	}
-
+    list->head = NULL;
 	list->count = 0;
 	
 }
