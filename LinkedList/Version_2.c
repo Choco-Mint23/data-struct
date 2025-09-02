@@ -94,16 +94,14 @@ void insertLast(List *list, int data) {
 	Node *newNode = malloc(sizeof(struct node));
 	newNode->data = data;
 	newNode->next = NULL;
-	
+	int i;
 	Node *current = list->head;
-	if(list->head == NULL) {
-		list->head = newNode;
-	}
-	while(current->next!=NULL) {
-		current = current->next;
-	}
-	current->next = newNode;
-	list->count++;
+
+	for(i=0;i<list->count-1;i++) {
+	current = current->next;
+ 		}
+ current->next = newNode;
+ list->count++;
 }
 
 void insertPos(List *list, int data, int index) {
