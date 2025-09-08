@@ -76,7 +76,7 @@ void empty(List *list) {
 		current = current->next;
 		free(temp);
 	}
-
+    list->head = NULL;
 	list->count = 0;
 	
 }
@@ -94,16 +94,14 @@ void insertLast(List *list, int data) {
 	Node *newNode = malloc(sizeof(struct node));
 	newNode->data = data;
 	newNode->next = NULL;
-	
+	int i;
 	Node *current = list->head;
-	if(list->head == NULL) {
-		list->head = newNode;
-	}
-	while(current->next!=NULL) {
-		current = current->next;
-	}
-	current->next = newNode;
-	list->count++;
+
+	for(i=0;i<list->count-1;i++) {
+	current = current->next;
+ 		}
+ current->next = newNode;
+ list->count++;
 }
 
 void insertPos(List *list, int data, int index) {
@@ -216,10 +214,10 @@ int locate(List *list, int data) {
 
 void display(List *list) {
 	
-	Node *trav = list->head;
+	Node *current = list->head;
 	int i;
 	for(i=0;i<list->count;i++) {
-	printf("Node[%d]: %d\n",i,trav->data);
-		trav = trav->next;
+	printf("Node[%d]: %d\n",i,current->data);
+		current = current->next;
     }
 }
