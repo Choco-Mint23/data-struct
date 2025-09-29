@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define MAX 10
 
@@ -14,86 +15,95 @@ typedef struct {
 	int rear;
 	
 }Queue;
-
 Queue* initialize();
+bool isFull(Queue* q);
+bool isEmpty(Queue* q);
 void enqueue(Queue* q, int value);
 int dequeue(Queue* q);
 int front(Queue* q);
 void display(Queue* q);
-int main() {
+int main () {
 	
 	Queue *Q = initialize();
-
-	enqueue(Q, 7);
-	enqueue(Q, 1);
-	enqueue(Q, 9);
+	enqueue(Q,1);
+	enqueue(Q,3);
+	enqueue(Q,2);
+	enqueue(Q,5);
 	dequeue(Q);
-	enqueue(Q, 8);
 	
+	printf("Queue starts here!:\n");
 	display(Q);
-	
-	return 0;
 }
 Queue* initialize() {
 	
 	Queue *ptr = malloc(sizeof(Queue));
-	ptr->list.count = 0;
 	ptr->front = -1;
 	ptr->rear = -1;
-	
+	ptr->list.count = 0;
 	return ptr;
+}
+bool isFull(Queue* q) {
+	if (q->list.count==MAX) {
+		return 1;
+	}  else {
+		return 0;
+	}
+}
+bool isEmpty(Queue* q) {
+	
+	if(q->list.count==0) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 void enqueue(Queue* q, int value) {
 	
-	if(q->list.count == MAX) {
-		printf("queue is full");
-	}
-	if(q->list.count == 0) {
-		q->front = 0;
-		q->rear = 0;
-	} else {
-		q->rear = (q->rear+1) % MAX;
-	}
-	q->list.items[q->rear] = value;
-	q->list.count++;
+	if(isEmpty(q)) {
+		q->list.items[0] = value;
 	
+	    q->front = 0;
+		q->rear = 0;	
+		q->list.count++;
+	} else if(isFull(q)) {
+		printf("cannot enqueue, queue is empty");
+	} else {
+		q->rear = (q->rear+1)%MAX;
+		q->list.items[q->rear] = value;
+		q->list.count++;
+	}
 }
 int dequeue(Queue* q) {
-	if(q->list.count == 0) {
-     return -1;
-     }
-     
-     int value = q->list.items[q->front];
-     
-     if(q->list.count==1) {
-     		q->list.count = 0;
-		q->front = -1;
-		q->rear = -1;
-	 }  else {
-	 	
-	 	q->front = (q->front+1)% MAX;
-	 	    q->list.count--;
-	 }
-	 
-     return value;
-}
-int front(Queue* q) {
 	
-	if(q->list.count==0) {
+	if(isEmpty(q)) {
 		return -1;
 	}
-	return q->list.items[q->front];
+	int retval = q->list.items[q->front];
+	
+	if(q->list.count == 1) {
+		initialize(q);
+	} else {
+		q->front = (q->front+1)%MAX;
+		q->list.count--;
+	}
+	return retval;
+	
+}
+int front(Queue* q) {
+	if(!isEmpty(q)) {
+		return q->list.items[q->front];
+	}
+	
 }
 void display(Queue* q) {
-	
-		if(q->list.count==0) {
-		printf("queue is empty");
-	}
-	int i;
-	
-	printf("ROSE PHARMACY\n");
-	printf("NOW SERVING:\n");
-	for(i=q->front;i<=q->rear;i++) {
-		printf("[%d]\n",q->list.items[i]);
+
+	int j=0;
+	if(!isEmpty(q)) {
+       int i = q->front;
+	   while(j!=q->list.count) {
+	   	printf("     [%d]\n",q->list.items[i]);
+	   	i = (i+1)%MAX;
+	   	j++;
+	   }	
 	}
 }

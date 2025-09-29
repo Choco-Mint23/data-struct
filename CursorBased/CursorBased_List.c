@@ -19,7 +19,7 @@ void initialize(VHeap *V);
 void insertFirst(int* L, VHeap* V, int elem);
 void display(int L, VHeap V);
 void insertLast(int* L, VHeap* V, int elem);
-void delete(int* L, VHeap* V, int elem);
+void deleteFirst(int* L, VHeap* V, int elem);
 void deallocSpace(VHeap* V, int index);
 void insertSorted(int* L, VHeap* V, int elem);
 void deleteAllOccurrence(int* L, VHeap* V, int elem);
@@ -35,6 +35,7 @@ int main () {
     insertSorted(&L,&V,0);
     insertSorted(&L,&V,2);
     insertSorted(&L,&V,3);
+    deleteFirst(&L,&V,2);
   
     
     
@@ -96,7 +97,7 @@ void display(int L, VHeap V) {
        printf("%d -> ",V.H[i].elem);
    }
 }
-void delete(int* L, VHeap* V, int elem) {
+void deleteFirst(int* L, VHeap* V, int elem) {
     
     int *trav;
     int temp;
