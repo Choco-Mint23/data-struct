@@ -34,9 +34,9 @@ void initialize(unsigned char *set) {
 }
 void insert(unsigned char *set, int element) {
     
-    if(element > 0 && element < 8) {
+    if(element >= 0 && element < 8) {
         
-    unsigned int mask = 1 << (element-1);
+    unsigned int mask = 1 << element;
    
    *set |= mask;
     }
@@ -45,9 +45,9 @@ void insert(unsigned char *set, int element) {
 
 void delete(unsigned char *set, int element) {
     
-    if(element > 0 && element < 8) {
+    if(element >= 0 && element < 8) {
         
-      unsigned int mask = 1 << (element-1);
+      unsigned int mask = 1 << element;
    *set &= ~mask;  
    
     }
@@ -55,8 +55,8 @@ void delete(unsigned char *set, int element) {
 }
 bool find(unsigned char set, int element) {
     
-    if(element > 0 && element < 8) {
-         unsigned int mask = 1 << (element-1);
+    if(element >= 0 && element < 8) {
+         unsigned int mask = 1 << element;
     set & mask;
     }
    
@@ -79,7 +79,7 @@ unsigned char difference(unsigned char A, unsigned char B) {
 }
 void display(unsigned char set) {
  
-int i = 1;
+int i = 0;
 unsigned int mask = 1;
 printf("{");
 while(mask!=0) {
