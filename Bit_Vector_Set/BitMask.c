@@ -34,12 +34,12 @@ void initialize(unsigned char *set) {
 }
 void insert(unsigned char *set, int element) {
     
-    if(element >= 0 && element < 8) {
-        
-    unsigned int mask = 1 << element;
-   
-   *set |= mask;
-    }
+    if(element >=0 && element < 8) {
+    	
+    	unsigned int mask = 1 << element;
+    	
+    	*set |=mask;
+	}
    
 }
 

@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -105,7 +105,7 @@ int main() {
 
     // Clean up memory
     destroyDictionary(&colorDict);
-
+    
     return 0;
 }
 int hashFunction(int rgb[3]) {

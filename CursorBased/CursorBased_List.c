@@ -42,9 +42,7 @@ int main () {
     display(L,V);
     
     
-//    Set avail to the beginning of list
-//Traverse the list and update each cell’s next to create a chain
-//Set last cell’s next to -1
+
 
   return 0;
 }
@@ -64,7 +62,7 @@ int allocSpace(VHeap* V) {
     
     V->avail = V->H[V->avail].next;
     
-    return index; //returns next available index
+    return index; 
     
 }
 void insertFirst(int* L, VHeap* V, int elem) {
