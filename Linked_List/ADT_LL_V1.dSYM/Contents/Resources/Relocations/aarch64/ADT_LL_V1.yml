@@ -1,0 +1,13 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/eman/Documents/DSA/data-struct/Linked_List/ADT_LL_V1'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003A38, symSize: 0x1A8 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003A38, symSize: 0x1A8 }
+  - { offsetInCU: 0x69, offset: 0x69, size: 0x8, addend: 0x0, symName: _initialize, symObjAddr: 0x1A8, symBinAddr: 0x100003BE0, symSize: 0x38 }
+  - { offsetInCU: 0x92, offset: 0x92, size: 0x8, addend: 0x0, symName: _insertPos, symObjAddr: 0x1E0, symBinAddr: 0x100003C18, symSize: 0xE4 }
+  - { offsetInCU: 0xE5, offset: 0xE5, size: 0x8, addend: 0x0, symName: _insertSorted, symObjAddr: 0x2C4, symBinAddr: 0x100003CFC, symSize: 0xDC }
+  - { offsetInCU: 0x12A, offset: 0x12A, size: 0x8, addend: 0x0, symName: _display, symObjAddr: 0x3A0, symBinAddr: 0x100003DD8, symSize: 0x7C }
+  - { offsetInCU: 0x15D, offset: 0x15D, size: 0x8, addend: 0x0, symName: _deletePos, symObjAddr: 0x41C, symBinAddr: 0x100003E54, symSize: 0x9C }
+  - { offsetInCU: 0x1A2, offset: 0x1A2, size: 0x8, addend: 0x0, symName: _locate, symObjAddr: 0x4B8, symBinAddr: 0x100003EF0, symSize: 0x8C }
+...
