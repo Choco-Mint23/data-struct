@@ -42,13 +42,18 @@ void insert(BST* B, int value) {
 }
 
 void inorder(BST B) {
-    
-    if(B!=NULL) {
-        
-        inorder(B->LC);
-        printf("%d,",B->data);
-        inorder (B->RC);        
-        
+    BST stack[100];
+    int top = -1;
+    BST curr = B;
+
+    while (curr != NULL || top != -1) {
+        while (curr != NULL) {
+            stack[++top] = curr;
+            curr = curr->LC;
+        }
+        curr = stack[top--];
+        printf("%d,", curr->data);
+        curr = curr->RC;
     }
 }
 void preorder(BST B) {
@@ -76,14 +81,24 @@ void preorder(BST B) {
   
 }
 void postorder(BST B) {
-    
-    if(B!=NULL) {
-        
-    
-        postorder(B->LC);
-        postorder (B->RC);    
-        printf("%d,",B->data);    
-        
+    if (B == NULL) {
+		return;
+	}
+    BST stack1[100], stack2[100];
+    int top1 = -1, top2 = -1;
+
+    stack1[++top1] = B;
+
+    while (top1 != -1) {
+        BST curr = stack1[top1--];
+        stack2[++top2] = curr;
+
+        if (curr->LC) stack1[++top1] = curr->LC;
+        if (curr->RC) stack1[++top1] = curr->RC;
+    }
+
+    while (top2 != -1) {
+        printf("%d,", stack2[top2--]->data);
     }
 }
 void Delete (BST *B, int value) {
